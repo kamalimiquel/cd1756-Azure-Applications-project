@@ -109,6 +109,7 @@ def logout():
     if session.get("user"): # Used MS Login
         # Wipe out user and its token cache from session
         session.clear()
+        app.logger.info('MSAL logout Successful')
         # Also logout from your tenant's web session
         return redirect(
             Config.AUTHORITY + "/oauth2/v2.0/logout" +
